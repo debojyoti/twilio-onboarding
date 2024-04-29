@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const twilio = require("twilio");
 
 class TwilioHelper {
-  constructor({ sid, token }) {
+  constructor({ sid = '', token = '' } = {sid: '', token: ''}) {
     const sidToUse = sid || process.env.TWILIO_ACCOUNT_SID;
     const tokenToUse = token || process.env.TWILIO_AUTH_TOKEN;
     this.client = twilio(sidToUse, tokenToUse);
